@@ -1,0 +1,37 @@
+
+
+  <nz-layout>
+    <nz-header>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item class="content-buttom-nav">
+          <a class="button-nav" [ngClass]="{'open': !isCollapsed}" (click)="toggleCollapsed()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </a>
+        </li>
+        <li nz-menu-item class="menu-item-title">
+          <span><nz-avatar nzText="UI"></nz-avatar> MINKA</span>
+        </li>
+        <li nz-menu-item class="menu-item-title" style="float: right;" (click)="logout()">
+          <i nz-icon nzType="logout" nzTheme="outline" style="font-size: 18px;"></i> Salir
+        </li>
+      </ul>
+    </nz-header>
+    <nz-sider nzCollapsible
+      [nzTrigger]="null"
+      [(nzCollapsed)]="isCollapsed" 
+      [ngClass]="isCollapsed ? 'menu-close' : 'menu-open'"
+    >
+      <div class="logo"></div>
+      <ul nz-menu nzMode="inline">
+        <li *ngFor="let item of menuList" nz-menu-item nz-tooltip (click)="handleNavigatePage(item)" [nzTitle]="isCollapsed ? item.name : ''">
+          <i nz-icon [nzType]="item.icon"></i>
+          <span>{{item.name}}</span>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-content>
+        <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>

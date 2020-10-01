@@ -1,0 +1,131 @@
+.logo {
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.ant-layout {
+  background: #ffffff;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+  line-height: 60px;
+  height: 60px;
+}
+
+nz-content {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
+}
+
+nz-breadcrumb {
+  margin: 16px;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+.ant-layout-sider {
+  background: #fff;
+  border-right: 1px solid #e8e8e8;
+  box-shadow: 3px 0 4px 0 rgba(0,0,0,.05);
+}
+
+.menu-item-title {
+  background-color: #001529!important;
+  span {
+    font-weight: bold;
+    color: #fde3cf;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently*/
+  }
+  nz-avatar {
+    color:#f56a00; 
+    background-color:#fde3cf;
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
+}
+
+.menu-item-title:active {
+  background: #001529;
+}
+
+.menu-open {
+  flex: 0 0 200px!important;
+  max-width: 200px!important;
+  min-width: 200px!important;
+  width: 200px!important;
+}
+
+.menu-close {
+  flex: 0 0 61px!important;
+  max-width: 61px!important;
+  min-width: 61px!important;
+  width: 61px!important;
+}
+
+.content-buttom-nav {
+  width: 60px; 
+  padding: 0px!important;
+  padding-left: 0px !important;
+}
+
+.button-nav {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  background: #fff;
+  transform: rotate(0deg);
+  transition: 0.5s ease-in-out;
+  & span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 20px;
+    background: #1890ff;
+    border-radius: 3px;
+    opacity: 1;
+    left: 20px;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+    &:nth-child(1) {
+      top: 21px;
+      transform-origin: left center;
+    }
+    &:nth-child(2) {
+      top: 27px;
+      transform-origin: left center;
+    }
+
+    &:nth-child(3) {
+      top: 33px;
+      transform-origin: left center;
+    }
+  }
+  &.open span {
+    &:nth-child(1) {
+      transform: rotate(45deg);
+      top: 20px;
+    }
+
+    &:nth-child(2) {
+      width: 0%;
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 34px;
+    }
+  }
+}

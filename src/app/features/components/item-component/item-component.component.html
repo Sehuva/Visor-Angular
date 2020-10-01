@@ -1,0 +1,106 @@
+<nz-breadcrumb nz-page-header-breadcrumb>
+    <nz-breadcrumb-item><a routerLink="/home"><i nz-icon nzType="home"></i> Inicio</a></nz-breadcrumb-item>
+    <nz-breadcrumb-item>Item Component</nz-breadcrumb-item>
+</nz-breadcrumb>
+
+<nz-page-header>
+    <nz-page-header-title>Item Component</nz-page-header-title>
+    <nz-page-header-extra>
+        <button nz-button nzType="primary" nzGhost [nzDropdownMenu]="optionButtonNew" nz-dropdown>
+            <i nz-icon nzType="plus"></i>Nuevo
+        </button>
+        <button nz-button nzType="primary" nzGhost (click)="search()">
+            <i nz-icon nzType="search"></i>Buscar
+        </button>
+        <button nz-button nzType="primary" nzGhost (click)="clear()">
+            <i nz-icon nzType="shake"></i>Limpiar
+        </button>
+
+        <nz-dropdown-menu #optionButtonNew>
+            <ul nz-menu>
+                <li nz-menu-item (click)="openFormModal()"><a>Formulario Modal</a></li>
+                <li nz-menu-item (click)="onNavigateForm()"><a>Formulario Página</a></li>
+            </ul>
+        </nz-dropdown-menu>
+    </nz-page-header-extra>
+    <nz-page-header-content>
+        <form nz-form [formGroup]="formGroup" (keyup.enter)="search()">
+            <nz-divider></nz-divider>
+            <div nz-row class="filter-container">
+                <div nz-col [nzLg]="6" [nzMd]="12" [nzXs]="24">
+                    <nz-form-item>
+                        <nz-form-control>
+                            <nz-input-group [nzAddOnBefore]="inputName">
+                                <ng-template #inputName><i nz-icon nzType="filter" style="padding-top: 5px;"></i></ng-template>
+                                <input nz-input type="text" placeholder="Filtar por palabra clave" formControlName="name" (keyup.enter)="search()" />
+                            </nz-input-group>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+        </form>
+    </nz-page-header-content>
+</nz-page-header>
+
+<div nz-row class="content-table">
+    <nz-table
+        [nzFrontPagination]="false" 
+        nzSize="small" 
+        [nzTotal]="pagination.total" 
+        [(nzPageIndex)]="pagination.page"
+        [(nzPageSize)]="pagination.size" 
+        [nzData]="pagination.rows"
+        [nzLoading]="paginationLoading"
+        [nzShowTotal]="totalTemplate"
+        (nzPageIndexChange)="changePage($event)" 
+        [nzScroll]="{ x: 'auto'}"
+        [nzLoadingIndicator]="indicatorTemplate"
+    >
+        <thead (nzSortChange)="sortChange($event)" nzSingleSort>
+            <tr>
+                <th nzWidth="100px"></th>
+                <th nzShowSort nzSortKey="name">Nombre</th>
+                <th nzShowSort nzSortKey="description">Descripción</th>
+                <th nzShowSort nzSortKey="field4">Campo 4</th>
+                <th nzShowSort nzSortKey="field5">Campo 5</th>
+                <th nzShowSort nzSortKey="field6Format" nzWidth="150px" nzAlign="center">Campo 6</th>
+                <th nzWidth="90px" nzAlign="center">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of pagination.rows">
+                <td>
+                    <div class="custom-options">
+                        <button nz-button nzType="primary" nzSize="small" nzTooltipTitle="Editar" nz-tooltip [nzDropdownMenu]="optionButtonEdit" nz-dropdown>
+                            <i nz-icon nzType="edit"></i>
+                        </button>
+                        <button nz-button nzType="default" nzSize="small" (click)="updateState(item)" nzTooltipTitle="Cambiar Estado" nz-tooltip>
+                            <i nz-icon [nzType]="item.state ? 'close' : 'check'"></i>
+                        </button>
+
+                        <nz-dropdown-menu #optionButtonEdit>
+                            <ul nz-menu>
+                                <li nz-menu-item (click)="openFormModal(item.id)"><a>Editar en Modal</a></li>
+                                <li nz-menu-item (click)="onNavigateForm(item.id)"><a>Editar en Página</a></li>
+                            </ul>
+                        </nz-dropdown-menu>
+                    </div>
+                </td>
+                <td nzBreakWord>{{item.name}}</td>
+                <td nzBreakWord>{{item.description}}</td>
+                <td nzBreakWord>{{item.field4}}</td>
+                <td nzBreakWord>
+                    <label nz-checkbox [(ngModel)]="item.field5"></label>
+                </td>
+                <td nzBreakWord nzAlign="center">{{item.field6Format}}</td>
+                <td nzAlign="center">
+                    <nz-tag [nzColor]="item.state ? 'green' : 'red'">{{item.state ? 'Activo' : 'Inactivo'}}</nz-tag>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+    <ng-template #indicatorTemplate>
+        <app-loading size="large"></app-loading>
+    </ng-template>
+    <ng-template #totalTemplate let-range="range" let-total>{{ total }} Registro(s) encontrado(s).</ng-template>
+</div>

@@ -1,0 +1,43 @@
+<div class="content-main">
+    <div class="content-border">
+        <nz-spin [nzSpinning]="loading" [nzIndicator]="indicatorTemplate">
+            <div class="vertical-center">
+                <div class="text-center" style="width: 100%; z-index: 1;">
+                    <div>
+                        <h1 class="wellcome">Minka</h1>
+                        <span class="name-project-signin">Iniciar Sesión</span>
+                    </div>
+                    <div>
+                        <span class="name-project">UI Template</span>
+                    </div>
+                    <form nz-form [formGroup]="loginForm" class="mt-15">
+                        <nz-form-control class="form-control-username">
+                            <nz-input-group [nzAddOnBefore]="inputUserNameTemplate" class="input-username"
+                                nzSize="large">
+                                <ng-template #inputUserNameTemplate><i nz-icon nzType="user"
+                                        style="padding-top: 5px;"></i>
+                                </ng-template>
+                                <input nz-input type="text" placeholder="user@example.com" formControlName="userName" />
+                            </nz-input-group>
+                        </nz-form-control>
+                        <nz-form-control class="mb-15">
+                            <nz-input-group [nzAddOnBefore]="inputPasswordTemplate" class="input-password" nzSize="large">
+                                <ng-template #inputPasswordTemplate><i nz-icon nzType="lock" style="padding-top: 5px;"></i></ng-template>
+                                <input nz-input type="password" placeholder="**********" formControlName="password" />
+                            </nz-input-group>
+                        </nz-form-control>
+
+                        <button nz-button nzType="primary" (click)="submitForm()">
+                            Ingresar
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer">© Minka. Todos los derechos reservados 2020</div>
+        </nz-spin>
+    </div>
+</div>
+
+<ng-template #indicatorTemplate>
+    <app-loading size="large"></app-loading>
+</ng-template>

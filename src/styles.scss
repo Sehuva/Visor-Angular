@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+/*****/
+
+.ant-menu-inline-collapsed {
+  width: 60px;
+  border-right: none;
+  li.ant-menu-item {
+    padding: 0 22px;
+  }
+
+  li.ant-menu-submenu {
+    padding: 0 22px;
+    div.ant-menu-submenu-title {
+      padding: 0 0px!important;
+    }
+  }
+}
+
+nz-breadcrumb {
+  padding: 16px 24px!important;
+  padding-bottom: 0px!important;
+}
+
+nz-divider.ant-divider-horizontal {
+  margin: 0 0 10px;
+}
+
+/*****/
+
+.ml-5 {
+  margin-left: 5px!important;
+}
+.ml-10 {
+  margin-left: 10px!important;
+}
+.mr-5 {
+  margin-right: 5px!important;
+}
+.mr-10 {
+  margin-right: 10px!important;
+}
+.mt-5 {
+  margin-top: 5px!important;
+}
+.mt-10 {
+  margin-top: 10px!important;
+}
+.mt-15 {
+  margin-top: 15px!important;
+}
+.mt-20 {
+  margin-top: 20px!important;
+}
+.mt-25 {
+  margin-top: 25px!important;
+}
+.mt-5 {
+  margin-bottom: 5px!important;
+}
+.mb-10 {
+  margin-bottom: 10px!important;
+}
+.mb-15 {
+  margin-bottom: 15px!important;
+}
+.mb-20 {
+  margin-bottom: 20px!important;
+}
+.mb-25 {
+  margin-bottom: 25px!important;
+}
+.ant-form {
+  width: 100%;
+}
+.ant-form-item-label {
+  line-height: 1.5!important;
+  margin: 0 0 0px;
+}
+.ant-form-item {
+  padding: 0 10px!important;
+}
+.text-right {
+    text-align: right!important;
+}
+.text-left {
+  text-align: left!important;
+}
+.text-center {
+  text-align: center!important;
+}
+.ant-form-item {
+  margin-bottom: 5px!important;
+}
+.ant-calendar-picker {
+  width: 100%;
+}
+.filter-container {
+  padding: 10px 5px 5px 5px !important;
+  border-radius: 1px;
+  background: #f0f2f5;
+}
+
+/*****/
+
+nz-table {
+  width: 100%;
+}
+
+thead.ant-table-thead>tr>th {
+  border-bottom: 2px solid #1890ff;
+}
+
+div.content-table {
+  padding: 0px 24px;
+  div.ant-table-content {
+    margin: 0 0px;
+  }
+}
+
+.custom-options {
+  display: inline-flex;
+  button {
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+}
+
+.ant-table-body {
+  overflow-x: auto!important;
+}
+
+/*****/
+
+div.ant-modal-body {
+  padding: 18px;
+}
+
+form .ant-input-group .ant-select, form .ant-input-group .ant-cascader-picker {
+  width: 100%!important;
+  div {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+div.ant-spin-spinning {
+  display: flex!important;
+  align-items: center;
+  app-loading {
+    width: 100%;
+  }
+}
+
+nz-spin {
+  height: 100%;
+  div.ant-spin-container {
+    height: 100%;
+  }
+  div.ant-spin {
+    max-height: 100%!important;
+  }
+}
+
+nz-form-item {
+  width: 100%;
+  nz-form-label {
+    padding: 0 0 0px!important;
+  }
+}
+nz-date-picker {
+  width: 100%!important;
+}
+
+/******/
+
+.input-username {
+  span.ant-input-group-addon {
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 0px !important;
+    color: #1890ff;
+    background: #ecf6ff;
+  }
+  input {
+    border-top-right-radius: 8px!important;
+    border-bottom-right-radius: 0px;
+  }
+}
+
+nz-input-group {
+  span.ant-input-group-addon {
+    color: #1890ff;
+    background: #ecf6ff;
+  }
+}
+
+.input-password {
+  span.ant-input-group-addon {
+    border-bottom-left-radius: 8px!important;
+    border-top-left-radius: 0px!important;
+    color: #1890ff;
+    background: #ecf6ff;
+  }
+  input {
+    border-bottom-right-radius: 8px!important;
+    border-top-right-radius: 0px;
+  }
+}
